@@ -1,0 +1,46 @@
+<div class="media">
+        <a class="pull-left" href="#pablo">
+            <table class=""><tr><td width="70px">
+            <div class="avatar">
+                    
+                    <a href="{{ url_for('main.user', username=post.author.username) }}">
+                            <img src="{{ post.author.avatar(70) }}" />
+                    </a>
+            </div>
+            </td></tr></table>
+        </a>
+        <div class="media-body">
+                {% set user_link %}
+                <span class="user_popup">
+                    <a href="{{ url_for('main.user', username=post.author.username) }}">
+                        {{ post.author.username }}
+                    </a>
+                </span>
+                {% endset %}
+              <h4 class="media-heading">{{ _('%(username)s <small>&middot; %(when)s', username=user_link, when=moment(post.timestamp).fromNow()) }}</small></h4>
+
+              <p><span id="post{{ post.id }}">{{ post.name }}</span> : <span id="post{{ post.id }}">{{ post.body }}</span></p>
+              {% if post.language and post.language != g.locale %}
+              <br>
+              <p> 
+                    <span id="translation{{ post.id }}">
+                            <a href="javascript:translate(
+                                        '#post{{ post.id }}',
+                                        '#translation{{ post.id }}',
+                                        '{{ post.language }}',
+                                        '{{ g.locale }}');">{{ _('Translate') }}</a>
+                    </span>
+              </p>
+              {% endif %}
+
+              <!-- 
+              <div class="media-footer">
+                  <a href="#pablo" class="btn btn-primary btn-simple pull-right" rel="tooltip" title="Reply to Comment">
+                      <i class="material-icons">reply</i> Reply
+                  </a>
+                  <a href="#pablo" class="btn btn-danger btn-simple pull-right">
+                      <i class="material-icons">favorite</i> 243
+                  </a>
+              </div> -->
+        </div>
+  </div>

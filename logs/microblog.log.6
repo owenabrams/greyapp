@@ -1,0 +1,105 @@
+2018-07-29 05:40:51,151 ERROR: Exception on /auth/login [GET] [in /Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/tiffgravel/greyapp/app/auth/routes.py", line 28, in login
+    return render_template('auth/login.html', title=_('Sign In'), form=form)
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/flask/templating.py", line 134, in render_template
+    context, ctx.app)
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/flask/templating.py", line 116, in _render
+    rv = template.render(context)
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/tiffgravel/greyapp/app/templates/auth/login.html", line 2, in top-level template code
+    <!-- {% import 'bootstrap/wtf.html' as wtf %} -->
+  File "/Users/tiffgravel/greyapp/app/templates/baseparallax.html", line 7, in top-level template code
+    {% block styles %}
+  File "/Users/tiffgravel/greyapp/app/templates/baseparallax.html", line 8, in block "styles"
+    {{super()}}
+jinja2.exceptions.UndefinedError: there is no parent block called 'styles'.
+2018-07-29 05:40:57,110 ERROR: Exception on /auth/login [GET] [in /Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/tiffgravel/greyapp/app/auth/routes.py", line 28, in login
+    return render_template('auth/login.html', title=_('Sign In'), form=form)
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/flask/templating.py", line 134, in render_template
+    context, ctx.app)
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/flask/templating.py", line 116, in _render
+    rv = template.render(context)
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/tiffgravel/greyapp/app/templates/auth/login.html", line 2, in top-level template code
+    <!-- {% import 'bootstrap/wtf.html' as wtf %} -->
+  File "/Users/tiffgravel/greyapp/app/templates/baseparallax.html", line 7, in top-level template code
+    {% block styles %}
+  File "/Users/tiffgravel/greyapp/app/templates/baseparallax.html", line 8, in block "styles"
+    {{super()}}
+jinja2.exceptions.UndefinedError: there is no parent block called 'styles'.
+2018-07-29 05:40:57,456 ERROR: Exception on /auth/login [GET] [in /Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/tiffgravel/greyapp/app/auth/routes.py", line 28, in login
+    return render_template('auth/login.html', title=_('Sign In'), form=form)
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/flask/templating.py", line 134, in render_template
+    context, ctx.app)
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/flask/templating.py", line 116, in _render
+    rv = template.render(context)
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/tiffgravel/greyapp/app/templates/auth/login.html", line 2, in top-level template code
+    <!-- {% import 'bootstrap/wtf.html' as wtf %} -->
+  File "/Users/tiffgravel/greyapp/app/templates/baseparallax.html", line 7, in top-level template code
+    {% block styles %}
+  File "/Users/tiffgravel/greyapp/app/templates/baseparallax.html", line 8, in block "styles"
+    {{super()}}
+jinja2.exceptions.UndefinedError: there is no parent block called 'styles'.

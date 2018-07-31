@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block head %}
+
+<meta charset='utf-8' />
+<title>Walking Map</title>
+
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+
+
+{% endblock %}
+
+
+{% block app_content %}
+    <!-- Display the map and prompt -->
+
+
+    <div id='map-master'>
+            <label id='geocoder'>
+                <i class='walk icon big'></i>
+                <input type='text' id='custom-geocoder' placeholder='Where do you want to go?' name='joyce-geocoder'>
+            </label>
+        <div id='map'></div>
+            <div id='map-controls'>
+                <div id='geolocation'></div>
+                <div id='zoom-controls'></div>
+            </div>
+
+            <!-- <div class='map-tooltips'></div> -->
+
+            <div id='directions'>   
+                <!-- <div id='errors'>errors</div> -->
+                  <ul id='marker-list'></ul>
+                
+                  <div id='routes'></div>
+                  <div id='duration'></div>
+                    <a href='/email_directions' id='email' >Send directions to your phone</a></br>
+                    <a href='/save_walk' id='saved' >Save this walk</a>
+                    <div class="loader"></div>
+                  <div id='instructions'></div>
+                     <ul id='instructions-list'>
+        <!--                 <ul id='distance-list'></ul> -->
+                    </ul>
+            </div>
+        </div>
+
+<!--             <span class="default">Add destination</span>
+            <span class="active">Destination added</span>
+            <span class="remove">Remove</span> -->
+   
+<!--             {% if waypoints %}
+                {% for waypoint in waypoints %}
+                    <ul>{{ waypoint }}</ul>
+                {% endfor %}
+            {% endif %} -->
+
+        <button type="button" id="get-directions" class="btn btn-primary" autocomplete="off">get route</button>
+        <button id="clear" class="btn btn-secondary">clear</button><br>
+        <!-- <button id="debugger" class="btn btn-secondary">debugger</button><br> -->
+
+        <script src="/static/mapbox.js"></script>
+{% endblock %}

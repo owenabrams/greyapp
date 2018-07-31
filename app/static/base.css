@@ -1,0 +1,94 @@
+.navbar {
+    background: url(/static/nice_snow.png);
+}
+
+
+.hidden {
+    display: none;
+}
+
+/*button styling*/
+.btn-primary {
+    margin: 5px;
+    border-radius: 2px;
+    background-color: lightseagreen;
+    border-color: lightseagreen;
+}
+
+.btn-primary:hover {
+    background-color: hotpink;
+    color: lightgray;
+    border-color: hotpink;
+}
+
+.btn-secondary {
+    margin: 5px;
+    width: 100px;
+    border-radius: 2px;
+    background-color: whitesmoke;
+    border-color: lightgray;
+}
+
+/*link styling*/
+a {
+    color: lightseagreen;
+}
+
+/* unvisited link */
+a:link {
+    color: lightseagreen;
+}
+
+/* visited link */
+a:visited {
+    color: lightseagreen;
+}
+
+/* mouse over link */
+a:hover {
+    color: hotpink;
+}
+
+/* selected link */
+a:active {
+    color: lightseagreen;
+}
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+.walkmap-thumbnail {
+    margin: -21px -13px 0 -13px;
+    display: block;
+}
+
+.leaflet-popup-close-button {
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+    color: hotpink;
+}
+
+.navbar-default .navbar-nav>.active>a {
+    color: hotpink;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.leaflet-popup-content { 
+    width: auto !important;
+}
+
+
+

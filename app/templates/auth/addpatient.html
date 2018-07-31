@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+    <h1>{{ _('Add Patient') }}</h1>
+    <h1>{{ _('Hi, %(username)s!', username=current_user.username) }}</h1>
+    
+    {% if form %}
+    {{ wtf.quick_form(form) }}
+    <br>
+    {% endif %} <!--
+    {% for patient in patients %}
+        {% include '_patient.html' %}
+    {% endfor %} -->
+    <nav aria-label="...">
+        <ul class="pager">
+            <li class="previous{% if not prev_url %} disabled{% endif %}">
+                <a href="{{ prev_url or '#' }}">
+                    <span aria-hidden="true">&larr;</span> {{ _('Newer patients') }}
+                </a>
+            </li>
+            <li class="next{% if not next_url %} disabled{% endif %}">
+                <a href="{{ next_url or '#' }}">
+                    {{ _('Older patients') }} <span aria-hidden="true">&rarr;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="row">
+            {% for patient in patients %}
+            <div class="col-md-4">
+                
+                <div class="card card-raised">
+                    <div class="card-content content-info">
+                        <h5 class="category-social">
+                           <!-- <i class="fa fa-twitter"></i> --> {{ patient.patient_name }}
+                        </h5>
+                        <h5 class="card-title">
+                            <a href="#pablo">"{{ patient.patient_description }}"</a>
+                        </h5>
+
+                        <div class="card-content card-pricing">
+                                <!-- <h6 class="category">Free</h6> -->
+                                <h1 class="card-title"><small>LAT</small>{{ patient.patient_lat }}<small>/{{ patient.patient_lng }}</small></h1>
+                                <ul>
+                                    <li><b>{{ post.height }} M : {{ post.weight }} KG</b></li>
+                                    
+                                </ul>
+                                <!-- <a href="#pablo" class="btn btn-rose btn-round">
+                                    Get Started
+                                </a> -->
+                            </div>
+
+
+
+                        <div class="footer">
+                            <div class="author">
+                                <a href="{{ url_for('main.user', username=post.author.username) }}">
+                                   <!-- <img src="assets/img/faces/avatar.jpg" alt="..." class="avatar img-raised"> -->
+                                   <img class="avatar img-raised" src=" {{ post.author.avatar(128) }}" />
+                                   <span>{{ patient.author.username }}</span>
+                                </a>
+                            </div>
+                           <div class="stats">
+                          <!--  <i class="material-icons">favorite</i> 2.4K &middot; -->
+                                <i class="material-icons">share</i> {{ moment(post.timestamp).fromNow() }}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>      
+
+            </div>      {% endfor %}
+
+
+        </div> <!-- End Row -->
+
+{% endblock %}

@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+    <h1><span style="color:turquoise"> {{ _('Hi, %(username)s!', username=current_user.username) }}</span></h1>
+    {% if form %}
+    <!-- Post patient record form begins here-->
+    <div class="row"  style="padding-top: 15px;">
+
+            {% if form %}
+            <form action="" method="post">
+                {{ form.hidden_tag() }}
+    
+                <div class="col-lg-3 col-sm-4">
+                    <div class="form-group label-floating">
+                        {{ form.name.label(class="control-label") }}<br>
+                        {{ form.name(size=32, class="form-control") }}<br>
+                        {% for error in form.name.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-sm-4">
+                    <div class="form-group label-floating">
+                        {{ form.height.label(class="control-label") }}<br>
+                        {{ form.height(size=32, class="form-control") }}<br>
+                        {% for error in form.height.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-sm-4">
+                    <div class="form-group label-floating">
+                        {{ form.weight.label(class="control-label") }}<br>
+                        {{ form.weight(size=32, class="form-control") }}<br>
+                        {% for error in form.weight.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-sm-4">
+                    <div class="form-group label-floating">
+                        {{ form.bmi.label(class="control-label") }}<br>
+                        {{ form.bmi(size=32, class="form-control") }}<br>
+                        {% for error in form.bmi.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-sm-4">
+                    <div class="form-group label-floating">
+                        {{ form.bmireport.label(class="control-label") }}<br>
+                        {{ form.bmireport(size=32, class="form-control") }}<br>
+                        {% for error in form.bmireport.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-sm-4">
+                    <div class="form-group label-floating">
+                        {{ form.post.label(class="control-label") }}<br>
+                        {{ form.post(size=32, rows=4, class="form-control") }}<br>
+                        {% for error in form.post.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </div>
+                </div>
+    
+                <div class="col-lg-3 col-sm-4">
+                    <div class="input-group">
+                        <!-- <span class="input-group-addon">
+                            <i class="material-icons">group</i>
+                        </span> -->
+                        {{ form.submit(class="btn btn-primary btn-txt") }}
+                    </div>
+                </div>
+
+            </form>
+            {% endif %}
+
+        </div> <!-- Post PAtient record form ends -->
+    <br>
+      
+    {% endif %}
+    {% for post in posts %}
+        {% include '_post.html' %}
+    {% endfor %}
+    <nav aria-label="...">
+        <ul class="pager">
+            <li class="previous{% if not prev_url %} disabled{% endif %}">
+                <a href="{{ prev_url or '#' }}">
+                    <span aria-hidden="true">&larr;</span> {{ _('Newer posts') }}
+                </a>
+            </li>
+            <li class="next{% if not next_url %} disabled{% endif %}">
+                <a href="{{ next_url or '#' }}">
+                    {{ _('Older posts') }} <span aria-hidden="true">&rarr;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="row">
+            {% for post in posts %}
+            <div class="col-md-4">
+                
+                <div class="card card-raised">
+                    <div class="card-content content-info">
+                        <h5 class="category-social">
+                           <!-- <i class="fa fa-twitter"></i> --> {{ post.name }}
+                        </h5>
+                        <h5 class="card-title">
+                            <a href="#pablo">"{{ post.body }}"</a>
+                        </h5>
+
+                        <div class="card-content card-pricing">
+                                <!-- <h6 class="category">Free</h6> -->
+                                <h1 class="card-title"><small>BMI</small>{{ post.bmi }}<small>/{{ post.bmireport }}</small></h1>
+                                <ul>
+                                    <li><b>{{ post.height }} M : {{ post.weight }} KG</b></li>
+                                    
+                                </ul>
+                                <!-- <a href="#pablo" class="btn btn-rose btn-round">
+                                    Get Started
+                                </a> -->
+                            </div>
+
+
+
+                        <div class="footer">
+                            <div class="author">
+                                <a href="{{ url_for('main.user', username=post.author.username) }}">
+                                   <!-- <img src="assets/img/faces/avatar.jpg" alt="..." class="avatar img-raised"> -->
+                                   <img class="avatar img-raised" src=" {{ post.author.avatar(128) }}" />
+                                   <span>{{ post.author.username }}</span>
+                                </a>
+                            </div>
+                           <div class="stats">
+                          <!--  <i class="material-icons">favorite</i> 2.4K &middot; -->
+                                <i class="material-icons">share</i> {{ moment(post.timestamp).fromNow() }}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>      
+
+            </div>      {% endfor %}
+
+
+        </div> <!-- End Row -->
+
+{% endblock %}

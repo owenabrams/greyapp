@@ -1,0 +1,218 @@
+
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background: url(/static/nice_snow.png);
+    background-size: cover;
+}
+
+input {
+    font-size: 12px;
+}
+
+h2 {
+    font-size: 12px;
+}
+
+p {
+    font-size: 12px;
+}
+
+#geocoder {
+    position: absolute;
+    z-index: 2;
+    top: 20px;
+    left: 20px;
+    background-color: white;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+#custom-geocoder {
+    width: 200px;
+    padding: 11px;
+    border: transparent;
+}
+
+.navbar {
+    margin-bottom: 0;
+}
+
+/*Markers and pop ups*/
+#popup {
+    max-width: 400px;
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+
+.leaflet-popup-content-wrapper {
+    min-width: 150px;
+}
+
+.marker-title {
+    font-weight: 700;
+}
+
+#marker-list {
+    font: 12px;
+}
+
+#popupButton {
+    background-color: lightseagreen;
+    color: whitesmoke;
+    border-radius: 2px;
+    border: 0;
+    display: inline-block;
+    transition-duration: 0.4s;
+}
+
+#saveButton {
+    background-color: whitesmoke;
+    border: 1px solid lightgray;
+    color: black;
+    border-radius: 2px;
+    display: inline-block;
+    transition-duration: 0.4s;
+}
+
+#popupButton:hover {
+    background-color: hotpink;
+    color: lightgray;
+}
+
+.saveButton:hover {
+    background-color: whitesmoke;
+    color: lightgray;
+}
+
+
+
+.leaflet-container h1, .leaflet-container h2, .leaflet-container h3, .leaflet-container h4, .leaflet-container h5, .leaflet-container h6, .leaflet-container p {
+    font-size: 12px;
+    line-height: 20px;
+    margin: 4px 2px 4px 2px;
+}
+
+/*.leaflet-popup-content-wrapper {
+    min-width: 175px;
+}*/
+
+#map-master {
+    position: relative;
+}
+
+#map { 
+    height: 500px;
+    width:  100%;
+    margin: 0 left;
+    }
+
+.map { 
+    position: absolute; 
+    top: 0; 
+    bottom: 0; 
+    width: 100%; 
+}
+
+#get-directions {
+    border: 0;
+}
+
+#get-directions:hover {
+    background-color: hotpink;
+    color: lightgray;
+}
+
+
+
+/*.address-input {
+    z-index: 10;
+    width: 100px;
+    top: 10px;
+    left: 10px;
+}*/
+
+#directions {
+    position: absolute;
+    width: 300px;
+    padding: 10px;
+    display: none;
+    z-index: 99;
+    background: rgba(0,0,0,.8);
+    color: white;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+}
+
+#errors {
+    z-index: 8;
+    opacity: 0;
+    padding: 10px;
+    border-radius: 0 0 3px 3px;
+    background: rgba(0,0,0,.25);
+    top: 90px;
+    left: 10px;
+}
+
+
+#jquery-flash-container {
+    padding: 20px;
+    border: 2px solid blue;
+    border-radius: 50px;
+    position: fixed;
+    top: 20px;
+    left: 50px;
+    display: none;
+    background: whitesmoke;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: arial;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+#image-display img {
+    max-width: 200px;
+}
+
+div:empty {
+    display: none;
+}
+
+.walkmap-thumbnail {
+    margin: -20px -13px 0 -13px;
+    border: 0;
+    padding: 0;
+}
+
+.pop-title:hover {
+    color: hotpink;
+}
+
+.thumbnail:hover {
+    border-color: hotpink;
+}
+
+.loader {
+    border: 8px solid #f3f3f3; /* Light grey */
+    border-top: 8px solid lightseagreen;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    z-index: 98;
+    display: none;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { 
+        transform: rotate(0deg); 
+    }
+    100% { 
+        transform: rotate(360deg); 
+    }
+}

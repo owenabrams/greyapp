@@ -1,0 +1,81 @@
+2018-07-20 14:34:01,084 ERROR: Exception on /index [POST] [in /Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/elasticsearch/connection/http_urllib3.py", line 171, in perform_request
+    response = self.pool.urlopen(method, url, body, retries=False, headers=request_headers, **kw)
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/urllib3/util/retry.py", line 333, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/urllib3/packages/six.py", line 686, in reraise
+    raise value
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/urllib3/connectionpool.py", line 357, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/http/client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/http/client.py", line 1285, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/http/client.py", line 1234, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/http/client.py", line 1026, in _send_output
+    self.send(msg)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/http/client.py", line 964, in send
+    self.connect()
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/urllib3/connection.py", line 166, in connect
+    conn = self._new_conn()
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x105157c88>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/flask_login/utils.py", line 228, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/tiffgravel/greyapp/app/main/routes.py", line 36, in index
+    db.session.commit()
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 157, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 906, in commit
+    self.transaction.commit()
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 468, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/sqlalchemy/event/attr.py", line 218, in __call__
+    fn(*args, **kw)
+  File "/Users/tiffgravel/greyapp/app/models.py", line 41, in after_commit
+    add_to_index(obj.__tablename__, obj)
+  File "/Users/tiffgravel/greyapp/app/search.py", line 10, in add_to_index
+    body=payload)
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/elasticsearch/client/utils.py", line 76, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/elasticsearch/client/__init__.py", line 319, in index
+    _make_path(index, doc_type, id), params=params, body=body)
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/elasticsearch/transport.py", line 318, in perform_request
+    status, headers_response, data = connection.perform_request(method, url, params, body, headers=headers, ignore=ignore, timeout=timeout)
+  File "/Users/tiffgravel/greyapp/venv/lib/python3.6/site-packages/elasticsearch/connection/http_urllib3.py", line 180, in perform_request
+    raise ConnectionError('N/A', str(e), e)
+elasticsearch.exceptions.ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x105157c88>: Failed to establish a new connection: [Errno 61] Connection refused) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x105157c88>: Failed to establish a new connection: [Errno 61] Connection refused)
